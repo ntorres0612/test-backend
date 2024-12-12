@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
-import test.xpertgroup.test_backend.dtos.BreedDto;
+import test.xpertgroup.test_backend.dtos.CatBreedDTO;
 import test.xpertgroup.test_backend.dtos.ImageDto;
 
 import java.util.List;
@@ -24,26 +24,26 @@ public class CatService {
     }
 
 
-    public Mono<List<BreedDto>> getBreeds() {
+    public Mono<List<CatBreedDTO>> getBreeds() {
         return webClient.get()
                 .uri(baseUrl + "v1/breeds?limit=10&page=0")
                 .retrieve()
-                .bodyToFlux(BreedDto.class)
+                .bodyToFlux(CatBreedDTO.class)
                 .collectList();
     }
 
-    public Mono<BreedDto> getBreedById(String id) {
+    public Mono<CatBreedDTO> getBreedById(String id) {
         return webClient.get()
                 .uri(baseUrl + "v1/breeds/{id}", id)
                 .retrieve()
-                .bodyToMono(BreedDto.class);
+                .bodyToMono(CatBreedDTO.class);
     }
 
-    public Mono<List<BreedDto>> searBreeds(String q) {
+    public Mono<List<CatBreedDTO>> searBreeds(String q) {
         return webClient.get()
                 .uri(baseUrl + "v1/breeds/search?q={q}", q )
                 .retrieve()
-                .bodyToFlux(BreedDto.class)
+                .bodyToFlux(CatBreedDTO.class)
                 .collectList();
     }
 

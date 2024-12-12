@@ -1,10 +1,7 @@
 package test.xpertgroup.test_backend.controllers;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import test.xpertgroup.test_backend.dtos.LoginUserDto;
 import test.xpertgroup.test_backend.dtos.RegisterUserDto;
 import test.xpertgroup.test_backend.entities.User;
@@ -14,6 +11,7 @@ import test.xpertgroup.test_backend.services.JwtService;
 
 @RequestMapping("/auth")
 @RestController
+@CrossOrigin(origins = "*")
 public class AuthenticationController {
     private final JwtService jwtService;
 

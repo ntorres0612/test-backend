@@ -8,5 +8,5 @@ import java.util.List;
 public class ImageDto {
     private String id;
     private String url;
-    private List<BreedDto> breeds;
+    private List<CatBreedDTO> breeds;
 }
